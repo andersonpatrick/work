@@ -6,16 +6,16 @@ $conn = new PDO(
 
 if(isset($_POST['nome_projeto'])){
 
-$nome_projeto = "";
-$dominio = "";
-$possui_logo = "";
-$video_promocional = "";
-$contato_email = "";
-$email_corporativo = "";
-$multiplos_idiomas = "";
-$tipo_pagamento = "";
-$anuncio_adsense_admob = "";
-$plats_mobiles = "";
+$nome_projeto = "null";
+$dominio = "null";
+$possui_logo = "null";
+$video_promocional = "null";
+$contato_email = "null";
+$email_corporativo = "null";
+$multiplos_idiomas = "null";
+$tipo_pagamento = "null";
+$anuncio_adsense_admob = "null";
+$plats_mobiles = "null";
 
 
 if(isset($_POST['nome_projeto'])){$nome_projeto = $_POST['nome_projeto']; }
