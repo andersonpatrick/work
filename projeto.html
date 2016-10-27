@@ -35,18 +35,9 @@
 		<link rel="stylesheet" href="css/theme-shop.css">
 		<link rel="stylesheet" href="css/theme-animate.css">
 
-		<!-- Admin Extension Specific Page Vendor CSS -->
-		<link rel="stylesheet" href="../../porto-admin/edge/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css">
-
-		<!-- Admin Extension CSS -->
-		<link rel="stylesheet" href="../../porto-admin/edge/assets/stylesheets/theme-admin-extension.css">
-
-		<!-- Admin Extension Skin CSS -->
-		<link rel="stylesheet" href="../../porto-admin/edge/assets/stylesheets/skins/extension.css">
-
+		
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="css/skins/default.css">		<script async="" src="../../../www.google-analytics.com/analytics.js"></script><script async="" src="../../../www.google-analytics.com/analytics.js"></script><script async="" src="../../../www.google-analytics.com/analytics.js"></script><script async="" src="../../../www.google-analytics.com/analytics.js"></script><script async="" src="../../../www.google-analytics.com/analytics.js"></script><script async="" src="../../../www.google-analytics.com/analytics.js"></script><script async="" src="../../../www.google-analytics.com/analytics.js"></script><script async="" src="../../../www.google-analytics.com/analytics.js"></script><script src="master/style-switcher/style.switcher.localstorage.js"></script>
-
+		
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
 
@@ -55,6 +46,12 @@
 
 	<link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"><link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"><link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"><style>
 		.tipospagamentos {
+    display: none;
+}
+form#frmprojeto {
+    display: block;
+}
+h1#msgok {
     display: none;
 }
 	</style><link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"><link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"><link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"><link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"><link rel="stylesheet" href="master/style-switcher/style-switcher.css"><link rel="stylesheet/less" href="master/less/skin-default.less"><link rel="stylesheet" href="master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css"></head>
@@ -687,7 +684,7 @@
 													<input type="checkbox" value="winphone" name="cb_appwinphone" id="cb_appwinphone">Windows Phone</label>
 											</div>
 										</div><div class="form-group">
-							<center><button type="button" class="btn btn-primary" name="bt_enviar" id="bt_enviar" onclick="callsubmit();">Enviar</button></center>				
+							<center><button type="button" class="btn btn-primary" name="bt_enviar" id="bt_enviar">Enviar</button></center>				
 										</div>
 
 
@@ -733,6 +730,8 @@
 					
 										
 									</form>
+									
+									<h1 id="msgok">Concluído, Os dados forma enviados com sucesso!.</h1>
 								</div>
 							</section>
 					
@@ -776,12 +775,6 @@
 		<!-- Theme Base, Components and Settings -->
 		<script src="js/theme.js"></script>
 
-		<!-- Admin Extension Specific Page Vendor -->
-		<script src="../../porto-admin/edge/assets/vendor/autosize/autosize.js"></script>
-		<script src="../../porto-admin/edge/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
-
-		<!-- Admin Extension -->
-		<script src="../../porto-admin/edge/assets/javascripts/theme.admin.extension.js"></script>
 		
 		<!-- Theme Custom -->
 		<script src="js/custom.js"></script>
@@ -823,8 +816,20 @@
 			}
 		}
 		
+		
+	$("button").click(function(){
+		 $.post( "blz.php", $("#frmprojeto").serialize(),function( data ) {
+		//alert( "Data Loaded: " + data );
+		if(data=='ok'){
+			document.getElementById('frmprojeto').style.display='none';document.getElementById('msgok').style.display='block';
+		} else {
+			alert('Erro ao enviar, tente novamente.');
+		}
+} );
+
+		//alert('a');
+		});
 	</script>
 
-<!-- Mirrored from preview.oklerthemes.com/porto/4.9.2/feature-admin-forms-basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Oct 2016 20:06:01 GMT -->
 
 </body></html>
